@@ -6,26 +6,30 @@ class RingBuffer:
         self.capacity  = capacity
         self.storage = []
 
-    class __Full:
-        def __init__(self, n):
-            raise
-
-        def append(self, x):
-            self.storage[self.cur] = x
-            self.cur = (self.cur+1) % self.capacity
-
-        def get(self):
-            return self.storage
-
     def append(self, item): # check to see if the list is at full capacity/ adds new value (item)
         self.storage.append(item)
         if len(self.storage) == self.capacity:
             self.cur = 0
-            self.__class__ = self.__Full
+            self.__class__ = self.Full
 
     def get(self):
             return self.storage
-  
+
+    class Full:
+        def __init__(self, n):
+            raise "you should us RingBuffer"
+
+        def append(self, x):
+            self.storage[self.cur] = x
+            if (self.cur + 1) == self.capacity:
+                self.cur = 0
+            else:
+                self.cur += 1
+            # self.cur = (self.cur+1) % self.capacity
+
+        def get(self):
+            return self.storage
+
     
 
 
