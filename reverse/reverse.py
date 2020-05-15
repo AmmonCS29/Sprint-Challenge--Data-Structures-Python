@@ -39,4 +39,25 @@ class LinkedList:
         return False
 
     def reverse_list(self, node, prev):
-        pass
+        current = node #assigns the parameter node to be the current node. 
+        if current is None: #Checking to see if node called in the parameters is none
+            return None #if it is none return none
+        if current.get_next() ==  None: #Checking to see if the next node in the list is none
+            self.head = current #If the next node is none. Set self.head to be the current node
+            self.head.next_node = prev #Setting the next_node pointer at the previous node. 
+            return #This returns the function and ends it. 
+        self.reverse_list(current.get_next(), node ) #inputing the next node as the argument for node and the current node as the argument for prev.
+        current.next_node = prev #This flips the pointer from the current next node to the previous node. 
+        
+        # node = self.head
+        # prev = self.head.next_node
+        # if node is None:
+        #     return 
+        # if node.next_node:
+        #     node.get_next()
+        #     print("if", node.value)
+        # else:
+        #     self.head = node
+        #     print("else",node)            
+
+
