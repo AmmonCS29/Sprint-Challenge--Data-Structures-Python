@@ -31,6 +31,8 @@ duplicates = set_1.intersection(set_2)
 # cast intersection_set as list
 # return list
 # https://dfrieds.com/python/intersection-two-arrays.html
+# https://www.w3schools.com/python/python_sets.asp
+# https://www.w3schools.com/python/ref_set_intersection.asp
 
 end_time = time.time()
 
